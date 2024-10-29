@@ -1,0 +1,53 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Weather API",
+      "description": "This is a simple API for weather information",
+      "version": "1.0.0"
+    },
+    "host": "localhost:8000",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/weather/{city}": {
+        "get": {
+          "summary": "Get weather information by city name",
+          "description": "This endpoint retrieves weather information for a given city",
+          "parameters": [
+            {
+              "name": "city",
+              "in": "path",
+              "description": "City name",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string"
+                  },
+                  "temperature": {
+                    "type": "number"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid city parameter"
+            }
+          }
+        }
+      }
+    }
+  }
+  
